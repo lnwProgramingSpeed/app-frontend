@@ -32,4 +32,8 @@ export class SearchPageService {
 
     return this.httpClient.get(apiUrl); // /videos/filters?university=university&year=year&term=term
   }
+
+  buy(videoId: string) {
+    return this.httpClient.put(`${this.url}buy/${videoId}`, {});
+  }
 }

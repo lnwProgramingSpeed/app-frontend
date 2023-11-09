@@ -29,7 +29,6 @@ import { ProfilePageModule } from './profile-page/profile-page.module';
 import { RouterModule } from '@angular/router';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { InboxPageModule } from './inbox-page/inbox-page.module';
-import { EditVideoPageComponent } from './edit-video-page/edit-video-page.component';
 
 @NgModule({
   declarations: [

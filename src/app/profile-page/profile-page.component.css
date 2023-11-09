@@ -13,7 +13,7 @@
 }
 
 .btn.btn-primary{
-    background-color: #8b4fbf;
+    background-color: rgb(215, 140, 219);
     border: none;
     
 }
@@ -25,7 +25,7 @@
     background-color: grey;
   } */
   .feed__item{
-    width: 479px;
+    width: 399px;
     height: 281px;
   }
 

@@ -13,7 +13,7 @@ export class SearchPageComponent {
   universities = ['CU', 'CMU', 'MU', 'SWU', 'TU', 'MFU', 'KU'];
   yearList = ['2019', '2020', '2021', '2022', '2023'];
   termList = ['1', '2', '3'];
-  
+
   selectedUniversity = this.defaultType;
   selectedYear = this.defaultType;
   selectedTerm = this.defaultType;
@@ -55,5 +55,9 @@ export class SearchPageComponent {
 
   search() {
     this.videos = this.searchService.getSearchVideos(this.searchValue);
+  }
+
+  buy(videoId: string) {
+    this.searchService.buy(videoId);
   }
 }

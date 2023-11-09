@@ -1,0 +1,35 @@
+.box{
+    margin: 500px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.666);
+    padding-top: 30px;
+    box-shadow: 0 0 10px rgba(57, 12, 117, 0.259);
+}
+
+i {
+    color: #000;
+    font-size: 30px;
+}
+
+li{
+    border: none;
+}
+
+h1 {
+   
+    margin-bottom: 13px;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-left: 22px;
+}
+
+body{
+    background: url("https://i.ibb.co/M9LB3Kq/Glassmorphism-Background.png")
+    no-repeat center center fixed;
+    background-size: cover;
+}
+
+

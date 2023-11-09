@@ -14,10 +14,8 @@ export class ChatPageComponent implements OnInit {
   messages = [];
 
   owner_id: string = '';
-
   user_id: string = '';
   user_name: string = '';
-
   userProfilePictureUrl: string = '';
 
   constructor(
@@ -38,6 +36,10 @@ export class ChatPageComponent implements OnInit {
       this.user_id = userObject._id;
       this.fetchProfilePicture();
     }
+
+    const storedMessages = localStorage.getItem('chatMessages');
+    this.messages = storedMessages ? JSON.parse(storedMessages) : [];
+
     this.route.paramMap.subscribe((params) => {
       const id = params.get('ownerId');
       if (id) {
@@ -55,7 +57,18 @@ export class ChatPageComponent implements OnInit {
 
     const channel = pusher.subscribe('chat');
     channel.bind('message', (data) => {
-      this.messages.push(data);
+      // Check if the message already exists in the array
+      const existingMessage = this.messages.find(
+        (msg) => msg.user_id === data.user_id && msg.message === data.message
+      );
+
+      // Add the message only if it's not already in the array
+      if (!existingMessage) {
+        this.messages.push(data);
+
+        // Save messages to localStorage
+        localStorage.setItem('chatMessages', JSON.stringify(this.messages));
+      }
     });
   }
 
@@ -66,6 +79,11 @@ export class ChatPageComponent implements OnInit {
       message: this.message,
     };
 
+    this.messages.push(messageData);
+
+    localStorage.setItem('chatMessages', JSON.stringify(this.messages));
+
+    // Save the message to the server
     this.http
       .post(`http://localhost:3000/api/messages/${this.owner_id}`, messageData)
       .subscribe(() => (this.message = ''));

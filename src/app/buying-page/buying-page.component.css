@@ -2,7 +2,7 @@
     width: 90%;
     height: 90%;
 }
-u can see in the preview selection
+
 
 body{
     margin-top:20px;
@@ -122,7 +122,7 @@ h3{
 }
 
 .btn.btn-primary{
-    background-color: #8b4fbf;
+    background-color: rgb(215, 140, 219);
     border: none;
     
 }

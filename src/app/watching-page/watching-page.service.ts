@@ -6,31 +6,31 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class WatchingPageService {
-  private urls = 'https://uhelp.cyclic.app/';
+  private url = 'https://uhelp.cyclic.app/';
 
   constructor(private httpClient: HttpClient) {}
 
   getVideos() {
-    return this.httpClient.get(`${this.urls}videos`);
+    return this.httpClient.get(`${this.url}videos`);
   }
 
   getVideoById(id: string) {
-    return this.httpClient.get(`${this.urls}videos/${id}`);
+    return this.httpClient.get(`${this.url}videos/${id}`);
   }
 
   getOwnerByVideoId(videoId: string): Observable<string> {
-    return this.httpClient.get(`${this.urls}videos/owner/${videoId}`, {
+    return this.httpClient.get(`${this.url}videos/owner/${videoId}`, {
       responseType: 'text',
     });
   }
 
   getOwner(owner_id: string) {
-    return this.httpClient.get(`${this.urls}users/${owner_id}`);
+    return this.httpClient.get(`${this.url}users/${owner_id}`);
   }
 
   getProfilePicture(user_id: string) {
     return this.httpClient.get(
-      `${this.urls}users/getProfilePicture/${user_id}`,
+      `${this.url}users/getProfilePicture/${user_id}`,
       { responseType: 'text' }
     );
   }
