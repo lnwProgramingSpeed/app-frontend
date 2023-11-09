@@ -19,7 +19,7 @@ import { InboxPageComponent } from './inbox-page/inbox-page.component';
 
 import { SearchPageModule } from './search-page/search-page.module';
 import { RegisterPageModule } from './register-page/register-page.module';
-import { LoginPageModule } from './login-page/login-page.module'
+import { LoginPageModule } from './login-page/login-page.module';
 import { PostPageModule } from './post-page/post-page.module';
 import { WatchingPageModule } from './watching-page/watching-page.module';
 import { MyVideoPageModule } from './my-video-page/my-video-page.module';
@@ -29,6 +29,7 @@ import { ProfilePageModule } from './profile-page/profile-page.module';
 import { RouterModule } from '@angular/router';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { InboxPageModule } from './inbox-page/inbox-page.module';
+import { EditVideoPageComponent } from './edit-video-page/edit-video-page.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { InboxPageModule } from './inbox-page/inbox-page.module';
     // WatchingPageComponent,
     // InboxPageComponent,
     ChatPageComponent,
+    //EditVideoPageComponent,
     // ProfilePageComponent,
     // RegisterPageComponent
   ],
@@ -61,9 +63,9 @@ import { InboxPageModule } from './inbox-page/inbox-page.module';
     InboxPageModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

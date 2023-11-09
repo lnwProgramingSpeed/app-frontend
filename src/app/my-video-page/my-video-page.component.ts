@@ -86,17 +86,24 @@ export class MyVideoPageComponent implements OnInit {
   getPurchases(_id: string) {
     this.myVideoPageService.getPurchases(_id).subscribe(
       (data: any[]) => {
-        console.log(data);
-        if (data && data.length > 0) {
-          this.purchaseVideos = data;
-        } else {
-          console.log('No purchased videos found for the user.');
-        }
+          console.log(data);
+          if (data && data.length > 0) {
+              this.purchaseVideos = data;
+
+              const allVideosDeleted = data.every(video => video.deleted);
+
+              if (allVideosDeleted) {
+                  console.log('All purchased videos have been deleted.');
+              }
+          } else {
+              console.log('No purchased videos found for the user.');
+          }
       },
       (error) => {
-        console.error(error);
+          console.error(error);
+          // Handle the error, e.g., display an error message to the user
       }
-    );
+  );
   }
 
   posting() {
@@ -268,5 +275,9 @@ export class MyVideoPageComponent implements OnInit {
 
   reload() {
     window.location.reload();
+  }
+
+  editVideo() {
+    this.router.navigate(['/editVideoPage']);
   }
 }

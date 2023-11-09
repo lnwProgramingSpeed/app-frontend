@@ -6,31 +6,31 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class WatchingPageService {
-  private url = 'https://rich-lime-rattlesnake-yoke.cyclic.app/';
+  private urls = 'http://localhost:3000/';
 
   constructor(private httpClient: HttpClient) {}
 
   getVideos() {
-    return this.httpClient.get(`${this.url}videos`);
+    return this.httpClient.get(`${this.urls}videos`);
   }
 
   getVideoById(id: string) {
-    return this.httpClient.get(`${this.url}videos/${id}`);
+    return this.httpClient.get(`${this.urls}videos/${id}`);
   }
 
   getOwnerByVideoId(videoId: string): Observable<string> {
-    return this.httpClient.get(`${this.url}videos/owner/${videoId}`, {
+    return this.httpClient.get(`${this.urls}videos/owner/${videoId}`, {
       responseType: 'text',
     });
   }
 
   getOwner(owner_id: string) {
-    return this.httpClient.get(`${this.url}users/${owner_id}`);
+    return this.httpClient.get(`${this.urls}users/${owner_id}`);
   }
 
   getProfilePicture(user_id: string) {
     return this.httpClient.get(
-      `${this.url}users/getProfilePicture/${user_id}`,
+      `${this.urls}users/getProfilePicture/${user_id}`,
       { responseType: 'text' }
     );
   }

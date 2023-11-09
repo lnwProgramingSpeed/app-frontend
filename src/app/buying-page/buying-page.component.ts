@@ -216,6 +216,7 @@ export class BuyingPageComponent implements OnInit {
           window.alert('You already owner this video');
         } else {
           window.alert('Video purchased successfully');
+          this.buyVideo(this.video_Id);
           this.navigateToQRPage(this.video_Id);
         }
       },
@@ -224,6 +225,18 @@ export class BuyingPageComponent implements OnInit {
       }
     );
   }
+
+  buyVideo(videoId: string) {
+    this.buyingPageService.buyVideo(videoId).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+  
 
   deleteComment(commentId: string) {
     this.buyingPageService.deleteComment(commentId).subscribe(

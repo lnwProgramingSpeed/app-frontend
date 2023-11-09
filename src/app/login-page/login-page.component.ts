@@ -22,7 +22,7 @@ export class LoginPageComponent {
         setTimeout(() => {
           window.location.reload();
         }, 500);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/search']);
       },
       (error) => {
         console.error('Login failed:', error);

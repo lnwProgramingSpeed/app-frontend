@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class BuyingPageService {
-  private url = 'https://rich-lime-rattlesnake-yoke.cyclic.app/';
+  private url = 'http://localhost:3000/';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -65,5 +65,10 @@ export class BuyingPageService {
       `${this.url}users/getProfilePicture/${user_id}`,
       { responseType: 'text' }
     );
+  }
+
+  buyVideo(videoId: string): Observable<any> {
+    const apiUrl = `${this.url}videos/buy/${videoId}`;
+    return this.httpClient.put(apiUrl, {});
   }
 }

@@ -200,7 +200,7 @@
                 <a [routerLink]="['/buying', video.id]">
                   <h3 class="card-title">{{ video.title }}</h3>
                   <p class="card-text">{{ video.description }}</p>
-                  <p>{{ video.date | date: 'yyyy-MM-dd' }}</p>
+                  <p>{{video.buyTime}} | {{ video.date | date: 'yyyy-MM-dd' }}</p>
                 </a>
               </div>
             </div>

@@ -60,11 +60,14 @@ export class ChatPageComponent implements OnInit {
   }
 
   submit(): void {
+    const messageData = {
+      user_id: this.user_id,
+      username: this.user_name,
+      message: this.message,
+    };
+
     this.http
-      .post('http://localhost:3000/api/messages', {
-        username: this.user_name,
-        message: this.message,
-      })
+      .post(`http://localhost:3000/api/messages/${this.owner_id}`, messageData)
       .subscribe(() => (this.message = ''));
   }
 

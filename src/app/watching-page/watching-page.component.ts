@@ -63,8 +63,6 @@ export class WatchingPageComponent implements OnInit {
       }
     });
   }
-  
-  
 
   getVideoInfo() {
     const video = this.watchingPageService.getVideoById(this.video_Id);
@@ -93,6 +91,7 @@ export class WatchingPageComponent implements OnInit {
     });
   }
 
+  // Download video for small file
   getVideo() {
     const video = this.watchingPageService.getVideoById(this.video_Id);
     video.subscribe(async (response: any) => {
@@ -119,6 +118,41 @@ export class WatchingPageComponent implements OnInit {
       return null;
     }
   }
+  // Download video for small file
+
+  //Chunk downloaded video
+  // async downloadChunksFromDropbox(file: any) {
+  //   const chunkSize = 15 * 1024 * 1024; // 15MB, should match the chunk size used for uploading
+  //   const downloadPath = '/' + Date.now() + file.name;
+
+  //   // Download each chunk
+  //   const downloadedChunks = [];
+  //   for (let i = 0; ; i++) {
+  //     const downloadFilePath = downloadPath + '_' + i;
+  //     try {
+  //       const result = await this.getTemporaryLink(downloadFilePath);
+  //       if (result) {
+  //         downloadedChunks.push(result);
+  //         console.log('Chunk', i, 'downloaded');
+  //       } else {
+  //         break; // Break the loop if there's an error (no more chunks)
+  //       }
+  //     } catch (error) {
+  //       console.error('Error downloading chunk', i, ':', error);
+  //       break; // Break the loop if there's an error (no more chunks)
+  //     }
+  //   }
+
+  //   // Set the combined temporary links to this.videoPath
+  //   this.videoPath = downloadedChunks.join(',');
+
+  //   // Now this.videoPath contains a comma-separated list of temporary links for each chunk
+  // }
+  // async getLinkForLargeFile(downloadPath: string) {
+  //   const result = await this.dbx.filesGetTemporaryLink({ path: downloadPath });
+  //   return result.result.link;
+  // }
+  //Chunk download from dropbox
 
   fetchProfilePicture() {
     this.watchingPageService.getProfilePicture(this.ownerId).subscribe(

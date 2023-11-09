@@ -83,7 +83,7 @@ export class PostPageComponent implements OnInit {
   // onFileSelectedWhenTooBig(event: any) {
   //   const file = event.target.files[0];
   //   if (file) {
-  //     const chunkSize = 5 * 1024 * 1024; // 5MB
+  //     const chunkSize = 15 * 1024 * 1024; // 15MB
   //     const chunks = this.chunkFile(file, chunkSize);
   //     this.uploadChunksToDropBox(chunks, file)
   //       .then(() => {
@@ -126,37 +126,29 @@ export class PostPageComponent implements OnInit {
             const desiredWidth = 720; // Set your desired width
             const desiredHeight = 480; // Set your desired height
 
+            // Calculate the aspect ratio
+            const aspectRatio = img.width / img.height;
+
             // Calculate the new dimensions while maintaining the aspect ratio
-            let width = img.width;
-            let height = img.height;
+            let width, height;
 
-            if (width > desiredWidth) {
-              height = (desiredWidth / width) * height;
-              width = desiredWidth;
-            }
-
-            if (height > desiredHeight) {
-              width = (desiredHeight / height) * width;
-              height = desiredHeight;
+            if (aspectRatio > 1) {
+              // Landscape orientation
+              width = Math.min(desiredWidth, img.width);
+              height = width / aspectRatio;
+            } else {
+              // Portrait or square orientation
+              height = Math.min(desiredHeight, img.height);
+              width = height * aspectRatio;
             }
 
             const canvas = document.createElement('canvas');
-            canvas.width = desiredWidth;
-            canvas.height = desiredHeight;
+            canvas.width = width;
+            canvas.height = height;
             const ctx = canvas.getContext('2d');
 
             if (ctx) {
-              ctx.drawImage(
-                img,
-                0,
-                0,
-                width,
-                height,
-                0,
-                0,
-                desiredWidth,
-                desiredHeight
-              );
+              ctx.drawImage(img, 0, 0, width, height);
               this.thumbnail = canvas.toDataURL('image/jpeg', 0.8);
               console.log(this.thumbnail);
             } else {
