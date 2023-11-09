@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class PostPageService {
-  private url = 'http://localhost:3000/';
+  private url = 'https://rich-lime-rattlesnake-yoke.cyclic.app';
 
   constructor(private httpClient: HttpClient) {}
 
