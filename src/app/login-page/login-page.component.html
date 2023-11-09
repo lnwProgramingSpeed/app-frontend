@@ -1,0 +1,40 @@
+<section>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div>
+          <div class="card-body p-5 text-center">
+            <h1 class="mb-4 fw-bold" style="color: rgb(255, 0, 255)">UHELP</h1>
+
+            <h3 class="mb-5">Sign in</h3>
+
+            <form #loginForm="ngForm" (ngSubmit)="loginUser()">
+              <div class="form-outline mb-4">
+                <label class="form-label" for="Email">Email</label>
+                <input type="email" id="Email" class="form-control form-control-lg" name="email" 
+                [(ngModel)]="email" required />
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="Password">Password</label>
+                <input type="password" id="Password" class="form-control form-control-lg" name="password"
+                  [(ngModel)]="password" required />
+              </div>
+
+              <p>Don't have account?<a [routerLink]="['/register']" style="color: #fb00d5 !important;">Register</a></p>
+
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary btn-lg btn-block" type="submit"
+                  style="background-color: rgb(143, 6, 255); border: none"
+                  [disabled]="loginForm.invalid">
+                  Sign in
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

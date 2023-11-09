@@ -1,0 +1,29 @@
+#upload-form {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background: #ffffff;
+  margin-top: 100px;
+  box-shadow: 0 0 10px rgba(57, 12, 117, 0.259);
+  margin-bottom: 50px;
+
+}
+
+.custom-file-upload {
+  padding: 5px;
+  border: 2px dashed #4919ce41;
+  border-radius: 3px;
+  height: 10pc;
+  text-align: center;
+  padding: 50px;
+  padding-left: 100px;
+
+}
+
+input{
+  width: 200%;
+}
+
+

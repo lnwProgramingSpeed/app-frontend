@@ -1,0 +1,161 @@
+body {
+  margin-bottom: 50px;
+}
+
+.profile-img {
+  height: 200px;
+  width: 200px;
+  background: #000;
+  transition: opacity 0.3s;
+  object-fit: cover;
+}
+
+.profile-img:hover {
+  opacity: 0.5;
+}
+
+.camera-icon {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.profile:hover .camera-icon {
+  opacity: 1;
+}
+
+.profile {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+}
+
+.card {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 240px;
+  width: 400px;
+}
+
+.card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  background-color: #ffffff;
+  transition: 1.5s ease;
+  text-align: left;
+}
+
+.img-card {
+  object-fit: cover;
+}
+
+.fa.fa-pencil-square-o {
+  color: rgb(0, 0, 0);
+}
+
+.row.ms-5 {
+  padding-top: 70px;
+}
+
+@media (max-width: 1080px) {
+  .row.ms-5 {
+    padding-top: 70px;
+  }
+
+  .col-12.col-md-8.col-lg-9 {
+    text-align: center;
+  }
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: #f600ea;
+}
+
+.nav-link {
+  color: black;
+}
+
+.n {
+  display: flex;
+}
+
+.card__thumbnail {
+  width: 360px;
+  height: 202px;
+  background-color: grey;
+}
+
+.feed__item {
+  width: 480px;
+  height: 280px;
+}
+
+.feed__item__info {
+  display: flex;
+  font-size: 14px;
+  color: rgb(96, 96, 96);
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.feed__item__info h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: rgb(3, 3, 3);
+}
+
+.feed__item__info a {
+  text-decoration: none;
+  color: unset;
+}
+
+.feed__item__info p {
+  margin: 0;
+}
+
+.feed__item__info__avatar {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  background-color: grey;
+  margin: 12px 12px 0 0;
+}
+
+.feed__section {
+  border-top: 3px solid lightgrey;
+  border-bottom: 3px solid lightgrey;
+  margin: 24px 35px 48px;
+}
+
+.feed__section h2 {
+  margin-left: 8px;
+}
+
+.feed__section__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.row.row-cols-auto {
+  margin-left: 5px;
+  width: 297px;
+  height: 32px;
+  border: 1px solid rgb(211, 211, 211);
+}
+
+.thumbnail {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  width: 400px;
+}

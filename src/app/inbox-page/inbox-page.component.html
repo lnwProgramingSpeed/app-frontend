@@ -1,0 +1,17 @@
+<div class="fs-4 mt-2 pt-5 text-center">
+    Contact
+</div>
+<ol class="list-group list-group-numbered mt-5">
+    <ng-container *ngFor="let user of usersList | async">
+        <li class="list-group-item d-flex justify-content-between align-items-start mt-2">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">{{user.username}}</div>
+                {{user.email}}
+            </div>
+            <span class="badge bg-primary rounded-pill"></span>
+            <button class="btn btn-primary" (click)="toChat(user.id)">
+                <i class="fa fa-comments" aria-hidden="true"></i>Talk with me
+              </button>
+        </li>
+    </ng-container>
+</ol>

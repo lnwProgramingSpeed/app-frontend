@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Nunito-Medium';
+    src: url('./assets/font/Nunito/static/Nunito-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'Nunito-Medium', sans-serif;
+  }
+  

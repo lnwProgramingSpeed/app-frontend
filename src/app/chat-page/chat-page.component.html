@@ -1,0 +1,37 @@
+<section>
+  <!-- Chat container -->
+  <div class="container mt-3 py-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-6 height: 100px">
+        <div class="card" id="chat2">
+          <!-- Card header -->
+          <div class="card-header d-flex justify-content-between align-items-center p-3">
+            <h5 class="mb-0">Inbox</h5>
+            <h5>Your name:<input class="fs-5" [(ngModel)]="user_name" /></h5>
+          </div>
+          <!-- Card body (chat messages) -->
+          <div class="list-group list-group-flush border-bottom scrollarea">
+            <div class="list-group-item list-group-item-action py-3 lh-tight" *ngFor="let msg of messages">
+              <div class="d-flex w-100 align-items-center justify-content-between">
+                <img [src]="userProfilePictureUrl" alt="avatar 3" class="rounded-circle"
+                  style="width: 40px; height: 100%" />
+                <br>
+                <div class="col-10 mb-1 small">{{msg.message}}</div>
+              </div>
+              <p class="fs-4">{{msg.username}}</p>
+            </div>
+          </div>
+
+          <!-- Card footer (message input) -->
+          <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
+            <img [src]="userProfilePictureUrl" alt="avatar 3" class="rounded-circle"
+              style="width: 40px; height: 100%" />
+            <input class="form-control" placeholder="Write a message" [value]="message"
+              (change)="onMessageChange($event)" />
+            <button class="btn btn-dark" id="send-button" (click)="submit()">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,98 @@
+<div *ngIf="!isSuccess" id="upload-form">
+  <h2>Upload Video</h2>
+
+  <div *ngIf="isLoading" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-danger" (click)="cancelUpload()">Cancel</button>
+    </div>
+  </div>
+
+  <form *ngIf="!isLoading" #uploadForm="ngForm" (ngSubmit)="uploadVideo(uploadForm)">
+    <div class="custom-file-upload">
+      <label for="videoFile" style="padding-right: 25px; color: #00000063">Upload Video (MP4 format only)</label>
+      <input type="file" id="videoFile" name="videoFile" accept=".mp4" (change)="onFileSelected($event)" required />
+    </div>
+
+    <div class="text-center">
+      *Don't worry, You can leaves this blank.* <br> **We will replaced with nice picture.**
+    </div>
+    <div class="custom-file-upload">
+      <label for="thumbnailFile" style="padding-right: 25px; color: #00000063">Upload Thumbnail (Image format)
+      </label>
+      <input type="file" id="thumbnailFile" name="thumbnailFile" accept="image/*" (change)="onThumbnailSelected($event)" />
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">title</label>
+        <input type="text" class="form-control" name="title" [(ngModel)]="title" required />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">description</label>
+        <input type="text" class="form-control" name="description" [(ngModel)]="description" required />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputUniversity">University</label>
+        <select class="form-control" name="university" [(ngModel)]="university" required >
+          <option *ngFor="let uni of universities" [value]="uni">{{ uni }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputYear">Year</label>
+        <select class="form-control" name="year" [(ngModel)]="year"required >
+          <option *ngFor="let yr of yearList" [value]="yr">{{ yr }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputTerm">Term</label>
+        <select class="form-control" name="term" [(ngModel)]="term" required >
+          <option *ngFor="let t of termList" [value]="t">{{ t }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">price</label>
+        <input type="number" class="form-control" name="price" [(ngModel)]="price" min="0" max="150" />
+      </div>
+    </div>
+    <button class="btn btn-primary btn-lg btn-block" type="submit" style="
+        background-color: rgb(97, 6, 255);
+        border: none;
+        text-align: center;
+        margin-top: 20px;
+      " [disabled]="uploadForm.invalid">
+      Upload
+    </button>
+  </form>
+
+  <!-- <button (click)="editVideo()">Edit</button>
+  <button (click)="deleteVideo()">Delete</button> -->
+</div>
+
+<div *ngIf="isSuccess" class="container position-absolute top-50 start-50 translate-middle">
+  <div class="row">
+    <div class="col-md-8 offset-md-2 text-center">
+      <h1>Upload Success</h1>
+      <p>Your video "<strong>{{ title }}</strong>" has been successfully uploaded.</p>
+      <p>
+        <button (click)="toMyvideo()" class="btn btn-primary btn-lg btn-block" style="
+        background-color: rgb(97, 6, 255);
+        border: none;
+        text-align: center;
+        margin-top: 20px;">View My Videos</button>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,149 @@
+<div class="d-flex justify-content-center align-items-start rounded mt-5">
+  <div class="ratio ratio-16x9 mt-4 m-3">
+    <video #videoPlayer width="973" height="480" controls controlsList="nodownload" [src]="videoPath" type="video/mp4"
+      frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+      allow="autoplay"></video>
+    <script>
+      const videoElement = document.getElementById('myVideo');
+      let startTime;
+      let endTime;
+
+      videoElement.addEventListener('play', () => {
+        // Video has started playing, record the start time
+        startTime = Date.now();
+      });
+
+      videoElement.addEventListener('pause', () => {
+        // Video has paused, record the end time
+        endTime = Date.now();
+
+        // Calculate the time watched in milliseconds
+        const watchedTime = endTime - startTime;
+
+        // Convert milliseconds to seconds
+        const watchedTimeInSeconds = watchedTime / 1000;
+
+        console.log('Watched Time (in seconds):', watchedTimeInSeconds);
+      });
+    </script>
+  </div>
+</div>
+
+<div class="container mt-4 mb-3">
+  <div class="d-flex flex-row mb-3">
+    <div class="p-2">
+      <a (click)="toProfile()">
+        <img [src]="userProfilePictureUrl" alt="profile" class="rounded-circle" style="height: 50px; width: 50px" />
+      </a>
+    </div>
+    <div class="p-2">
+      <p class="fs-6">{{ ownerName }}<br />{{ ownerEmail }}</p>
+      <p class="fs-4">{{ videoTitle }}</p>
+      <p class="fs-6">Description: {{ videoDescription }}</p>
+    </div>
+  </div>
+
+  <div class="row text-center">
+    <div class="col-auto me-auto"></div>
+    <div class="col-auto">
+      <h6>PRICE</h6>
+      <h6 style="color: rgb(225, 40, 40)">{{ videoPrice }} BATH</h6>
+      <br />
+      <button (click)="purchase()" class="btn btn-primary" [disabled]="!openComment">
+        Buy
+      </button>
+      <p class="fs-6 text-danger text-center" *ngIf="!openComment">
+        **Please log in to buy the video.**
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="text-uppercase">
+    <h3>Similar Video</h3>
+  </div>
+  <main class="feed" style="margin-top: 10px">
+    <div class="row row-g-2 g-lg-3">
+      <ul class="list-group list-group-horizontal position-relative overflow-x-scroll">
+        <ng-container *ngFor="let video of videos | async">
+          <div class="col">
+            <div class="feed__item">
+              <div class="thumbnail" style="margin-bottom: 1px">
+                <img [src]="video.thumbnail" style="width: 100%; height: 100%" [routerLink]="['/watching', video.id]" />
+              </div>
+
+              <div class="feed__item__info" style="display: flex; align-items: center; margin-top: 1px">
+                <div>
+                  <img class="feed__item__info__avatar" alt="" src="./assets/img/img.png" />
+                </div>
+                <div style="margin-left: 10px">
+                  <a [routerLink]="['/watching', video.id]">
+                    <h3 class="card-title">{{ video.title }}</h3>
+                    <p class="card-text">{{ video.description }}</p>
+                    <!-- <p>2M Views · 18 Jul 2021</p> -->
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<div class="container bootdey">
+  <div class="col-md-12 bootstrap snippets">
+    <h3>Comments</h3>
+
+    <div class="panel">
+      <div class="panel-body">
+        <textarea class="form-control" rows="2" placeholder="What are you thinking?" *ngIf="openComment"
+          [(ngModel)]="comment"></textarea>
+        <div class="mar-top clearfix">
+          <button class="btn btn-sm btn-primary pull-right" type="submit" *ngIf="openComment" (click)="submitComment()">
+            comment
+          </button>
+        </div>
+        <p class="fs-4 text-danger text-center" *ngIf="!openComment">
+          **Please log in to leave a comment.**
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-body">
+        <!-- Newsfeed Content -->
+        <!--===================================================-->
+        <div class="media-block" *ngFor="let comment of comments | async">
+          <a class="media-left" [routerLink]="['/buying', comment.video_Id]">
+            <img class="rounded-circle img-circle img-sm" alt="Profile Picture"
+              src="https://bootdey.com/img/Content/avatar/avatar1.png" />
+          </a>
+          <div class="media-body">
+            <div class="mar-btm">
+              <p class="text-semibold media-heading box-inline">
+                {{ comment.username }}
+              </p>
+            </div>
+
+            <div class="float-end">
+              <ul class="list-inline m-0">
+                <li class="list-inline-item">
+                  <button class="btn btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="Delete"
+                    (click)="deleteComment(comment._id)">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <p>{{ comment.text }}</p>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

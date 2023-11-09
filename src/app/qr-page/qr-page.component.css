@@ -1,0 +1,15 @@
+h1 {
+  text-align: center;
+  padding-top: 95px; 
+  margin-bottom: 30px;
+}
+ .container {
+  padding: 5px;
+  border: 4px solid #9d9de4;
+  border-radius: 3px;
+  background-color: rgb(199, 199, 237);
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(93, 12, 117, 0.259);
+  margin-bottom: 20px;
+} 

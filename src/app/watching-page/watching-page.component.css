@@ -1,0 +1,99 @@
+.btn.btn-primary{
+    background-color: #8b4fbf;
+    border: none;
+    
+}
+
+.card {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    height: 240px;
+    width: 400px;
+}
+
+.card-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35%;
+    background-color: #ffffff;
+    transition: 1.5s ease;
+    text-align: left;
+}
+.a{
+    margin: 0;
+}
+.img-card{
+    object-fit: cover;
+}
+
+.feed__item{
+    width: 479px;
+    height: 281px;
+  }
+
+  
+  .feed__item__info {
+    display: flex;
+    color: rgb(96, 96, 96);
+    margin-top: 1px;
+    font-size: 14px;
+    justify-content: flex-start;
+  }
+ 
+  .feed__item__info h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: rgb(3, 3, 3);
+  }
+  
+  .feed__item__info a {
+    text-decoration: none;
+    color: unset;
+    margin: 0;
+  }
+
+  .feed__item__info p {
+    margin: 0;
+  }
+  
+  .feed__item__info__avatar {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    background-color: grey;
+    margin: 12px 12px 0 0;
+  }
+  
+  .feed__section {
+    border-top: 3px solid lightgrey;
+    border-bottom: 3px solid lightgrey;
+    margin: 24px 35px 48px;
+  }
+  
+  .feed__section h2 {
+    margin-left: 8px;
+  }
+  
+  .feed__section__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .row.row-cols-auto{
+    margin-left: 5px;
+    width: 297px;
+    height: 32px;
+    border: 1px solid rgb(211, 211, 211);
+  }
+  .thumbnail{
+    display: inline-block;
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+      width: 400px;
+  } 
