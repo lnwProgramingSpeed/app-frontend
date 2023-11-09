@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProfilePageService {
-  private url = 'https://rich-lime-rattlesnake-yoke.cyclic.app';
+  private url = 'https://rich-lime-rattlesnake-yoke.cyclic.app/';
 
   constructor(private httpClient: HttpClient) {}
 

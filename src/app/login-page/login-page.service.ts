@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class LoginPageService {
-  private url = 'https://rich-lime-rattlesnake-yoke.cyclic.app';
+  private url = 'https://rich-lime-rattlesnake-yoke.cyclic.app/';
 
   constructor(private httpClient: HttpClient) {}
 
