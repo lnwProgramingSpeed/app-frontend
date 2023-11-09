@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class WatchingPageService {
-  private urls = 'http://localhost:3000/';
+  private urls = 'https://uhelp.cyclic.app';
 
   constructor(private httpClient: HttpClient) {}
 

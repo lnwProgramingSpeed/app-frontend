@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class InboxPageService {
-  private url = 'http://localhost:3000/';
+  private url = 'https://uhelp.cyclic.app';
 
   constructor(private http: HttpClient) {}
 

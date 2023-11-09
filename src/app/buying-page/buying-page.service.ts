@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class BuyingPageService {
-  private url = 'http://localhost:3000/';
+  private url = 'https://uhelp.cyclic.app';
 
   constructor(private httpClient: HttpClient) {}
 
