@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class RegisterPageService {
-  private url = 'https://uhelp.cyclic.app';
+  private url = 'https://uhelp.cyclic.app/';
 
   constructor(private httpClient: HttpClient) {}
 
