@@ -32,7 +32,7 @@ export class RegisterPageComponent {
               (response) => {
                 console.log('Registration successful', response);
                 window.alert('Registration successful');
-                this.router.navigate(['/home']);
+                this.router.navigate(['/login']);
               },
               (error) => {
                 console.error('Registration failed', error);
